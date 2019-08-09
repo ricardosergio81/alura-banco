@@ -4,31 +4,37 @@ public abstract class Conta {
     private int agencia;
     private int numero;
     private Cliente titular;
+    private static int total = 0;
 
     public Conta(int agencia, int numero, Cliente titular) {
+        if (agencia <= 0) {
+            throw new IllegalArgumentException("Código da Agencia inválida.");
+        }
+
+        if (numero <= 0) {
+            throw new IllegalArgumentException("Número da conta inválida.");
+        }
+        Conta.total++;
+
         this.agencia = agencia;
         this.numero = numero;
         this.titular = titular;
     }
 
-    public boolean transferir(double valor, Conta destino) {
-        if (this.sacar(valor)) {
-            destino.depositar(valor);
-            return true;
-        }
-        return false;
+    public void transferir(double valor, Conta destino) {
+        this.sacar(valor);
+        destino.depositar(valor);
     }
 
     public void depositar(double valor) {
         this.saldo += valor;
     }
 
-    public boolean sacar(double valor) {
-        if (this.saldo > valor) {
-            this.saldo -= valor;
-            return true;
+    public void sacar(double valor) {
+        if (this.saldo < valor) {
+            throw new ContaException("Saldo insuficiente");
         }
-        return false;
+        this.saldo -= valor;
     }
 
     public double getSaldo() {
@@ -45,5 +51,9 @@ public abstract class Conta {
 
     public Cliente getTitular() {
         return titular;
+    }
+
+    public static int getTotal() {
+        return total;
     }
 }

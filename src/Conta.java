@@ -1,4 +1,4 @@
-public abstract class Conta {
+public abstract class Conta extends Banco{
 
     private double saldo;
     private int agencia;

@@ -1,6 +1,8 @@
 public class SeguroVida implements Tributavel {
     @Override
     public double getValorImposto() {
-        return 10;
+        double valor = 10;
+        Banco.cobrancaServicos(valor);
+        return valor;
     }
 }

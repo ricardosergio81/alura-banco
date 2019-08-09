@@ -7,9 +7,10 @@ public class ContaComum extends Conta {
     }
 
     public void transferir(double valor, Conta destino){
-        double novoValor = valor + 0.20;
+        double novoValor = valor + 0.2;
         super.sacar(novoValor);
             destino.depositar(valor);
+        Banco.cobrancaServicos(0.2);
 
     }
     public static int getTotal() {

@@ -1,3 +1,5 @@
+package br.com.ricardorosa.banco;
+
 public class SeguroVida implements Tributavel {
     @Override
     public double getValorImposto() {

@@ -1,3 +1,7 @@
+package br.com.ricardorosa.main;
+
+import br.com.ricardorosa.banco.*;
+
 public class Principal {
 
     public static void main(String[] args) {

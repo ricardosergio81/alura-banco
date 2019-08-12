@@ -1,3 +1,5 @@
+package br.com.ricardorosa.banco;
+
 public abstract class Conta extends Banco{
 
     private double saldo;

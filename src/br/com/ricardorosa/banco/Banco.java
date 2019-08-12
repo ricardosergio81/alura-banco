@@ -1,3 +1,5 @@
+package br.com.ricardorosa.banco;
+
 public abstract class Banco {
 
     private static double valores = 0;

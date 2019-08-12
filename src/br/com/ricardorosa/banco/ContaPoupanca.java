@@ -1,3 +1,5 @@
+package br.com.ricardorosa.banco;
+
 public class ContaPoupanca extends  Conta{
 
     private static int total = 0;

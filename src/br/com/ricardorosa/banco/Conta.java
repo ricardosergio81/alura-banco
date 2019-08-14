@@ -1,6 +1,9 @@
 package br.com.ricardorosa.banco;
 
-public abstract class Conta extends Banco{
+/**
+ * Conta
+ */
+public abstract class Conta extends Banco {
 
     private double saldo;
     private int agencia;
@@ -57,5 +60,11 @@ public abstract class Conta extends Banco{
 
     public static int getTotal() {
         return total;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Agencia: " + this.agencia + " / Número: " + this.numero;
     }
 }

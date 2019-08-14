@@ -1,7 +1,5 @@
 package br.com.ricardorosa.banco;
 
-import org.jetbrains.annotations.NotNull;
-
 public class ContaComum extends Conta {
 
     private static int total = 0;
@@ -10,7 +8,7 @@ public class ContaComum extends Conta {
         ContaComum.total++;
     }
 
-    public void transferir(double valor, @NotNull Conta destino){
+    public void transferir(double valor, Conta destino){
         double novoValor = valor + 0.2;
         super.sacar(novoValor);
             destino.depositar(valor);
@@ -19,5 +17,10 @@ public class ContaComum extends Conta {
     }
     public static int getTotal() {
         return total;
+    }
+
+    @Override
+    public String toString() {
+        return "Conta Comum: "+super.toString();
     }
 }

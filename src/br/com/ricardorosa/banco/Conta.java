@@ -3,7 +3,7 @@ package br.com.ricardorosa.banco;
 /**
  * Conta
  */
-public abstract class Conta extends Banco {
+public abstract class Conta extends Banco implements Comparable<Conta>{
 
     private double saldo;
     private int agencia;
@@ -66,5 +66,23 @@ public abstract class Conta extends Banco {
     @Override
     public String toString() {
         return "Agencia: " + this.agencia + " / Número: " + this.numero;
+    }
+
+    @Override
+    public boolean equals(Object ref) {
+        Conta conta = (Conta) ref;
+        if (conta.agencia != this.agencia) {
+            return false;
+        }
+        if (conta.numero != this.numero) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int compareTo(Conta outra) {
+        return Double.compare(this.saldo, outra.saldo);
     }
 }
